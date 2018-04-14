@@ -100,7 +100,7 @@ if __name__ == '__main__':
     minimalmodbus._print_out('Port: ' + str(PORTNAME) + ', Address: ' + str(ADDRESS))
 
     instr = RelayModule(PORTNAME, ADDRESS)
-    instr.debug = False
+    instr.debug = True
 
     minimalmodbus._print_out('Digital inputs: {0}'.format(instr.get_digital_inputs()))
     instr.set_relay_output(1, 1)
