@@ -28,7 +28,7 @@ class RelayModule(minimalmodbus.Instrument):
         self.serial.bytesize = 8
         self.serial.parity = minimalmodbus.serial.PARITY_NONE
         self.serial.stopbits = 1
-        self.serial.timeout = 0.05  # seconds
+        self.serial.timeout = 1  # seconds
         self.mode = minimalmodbus.MODE_RTU  # rtu or ascii mode
 
     def get_digital_inputs(self):
@@ -71,6 +71,7 @@ class RelayModule(minimalmodbus.Instrument):
 
     def read_bits(self, registeraddress, functioncode=2):
         """Read multiple bits from the slave.
+
         Args:
             * registeraddress (int): The slave register address (use decimal numbers, not hex).
             * functioncode (int): Modbus function code. Can be 1 or 2.
@@ -83,7 +84,7 @@ class RelayModule(minimalmodbus.Instrument):
         payloadFromSlave = self._performCommand(functioncode, payloadToSlave)
         minimalmodbus._checkResponseByteCount(payloadFromSlave)
         registerdata = payloadFromSlave[1:]
-        return minimalmodbus._hexlify(registerdata)
+        return int(minimalmodbus._hexlify(registerdata))
 
 
 ########################
