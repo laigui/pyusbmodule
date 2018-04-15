@@ -32,14 +32,12 @@ script: coverage3 run setup.py test
 before_install:
      #Linux
    - if [ "$TRAVIS_OS_NAME" == "linux" ]; 
-     then apt-get --version ; fi
-     #Get Version
+     then pip install codecov ; fi
 
      #osx
    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install python3; fi
-   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then virtualenv venv -p python3; fi
-   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then source venv/bin/activate; fi
+   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pip install codecov; fi
 
 after_success:
   codecov
