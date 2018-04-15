@@ -35,10 +35,11 @@ before_install:
      #Get Version
 
      #osx
+   - export PATH=$PATH:~/.local/bin:~/bin
    - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew update ; fi
-   #- if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install python3 ; fi
-   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then virtualenv venv -p python3; fi
-   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then source venv/bin/activate; fi
-  
+   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew install python ; fi
+   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then pip install -U setuptools virtualenv codecov; fi
+
+
 after_success:
   codecov
