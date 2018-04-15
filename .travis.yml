@@ -17,6 +17,7 @@ matrix:
           python: 3.6
           env: TOXENV=py36
         - os: osx
+          osx_image: xcode6.4
           language: generic
           env: TOXENV=py36
 
