@@ -16,14 +16,9 @@ matrix:
           sudo: required
           python: 3.6
           env: TOXENV=py36
-        - os: osx
-          language: generic
-          env: TOXENV=py36
-
-addons:
-  apt:
-    packages:
-    - python-pip
+        #- os: osx
+        #  language: generic
+        #  env: TOXENV=py36
 
 # Command for online test coverage analysis
 before_install:
