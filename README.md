@@ -17,9 +17,15 @@ pip3 install -U pyusbmodule
 ## Usage
 
 ```
->from usbmodule import r4i4d
->instr = r4i4d.RelayModule('/dev/ttyUSB0', 1) 
->instr.get_digital_inputs()
+# the package
+from usbmodule import r4i4d
+
+# using class
+instr = r4i4d.RelayModule('/dev/ttyUSB0', 1) 
+instr.debug = True
+
+# using module method
+instr.get_digital_inputs()
 ```
 
 ## License
